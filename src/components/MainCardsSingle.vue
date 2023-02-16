@@ -5,7 +5,6 @@ import 'minifaker/locales/en'
 
 <template>
   <div class="card" @click="selectCard">
-    <div class="card-image"></div>
     <div class="card-details">
       <p class="card-details-name">{{ array(1, () => name()) }}</p>
       <p class="card-details-email">{{ array(1, () => email()) }}</p>
