@@ -13,6 +13,8 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@vueuse/firebase": "^9.13.0",
+    "firebase": "^9.17.1",
     "minifaker": "^1.34.1",
     "random-profile-generator": "^2.3.0",
     "vue": "^3.2.37",
