@@ -1,24 +1,18 @@
 <script setup>
-  import useAPI from '@/composables/useAPI'
-  
-  const { activePage, pages, getEmployees } = useAPI()
-  
-  const prevPage = async () => {
-    if (activePage.value > 1) {
-      activePage.value--
-      await getEmployees()
-    }
+import { ref } from 'vue'
+const pages = ref(10)
+const activePage = ref(4)
+
+const prevPage = () => {
+  if (activePage.value > 1) {
+    activePage.value--
   }
-  const nextPage = async () => {
-    if (activePage.value < pages.value) {
-      activePage.value++
-      await getEmployees()
-    }
+}
+const nextPage = () => {
+  if (activePage.value < pages.value) {
+    activePage.value++
   }
-  const jumpPage = async (page) => {
-    activePage.value = page
-    await getEmployees()
-  }
+}
 </script>
 
 <template>
@@ -29,7 +23,7 @@
       :key="page"
       class="page"
       :class="page === activePage ? 'active' : ''"
-      @click="jumpPage(page)"
+      @click="activePage = page"
     >
       {{ page }}
     </button>
@@ -38,16 +32,19 @@
 </template>
 
 <style lang="postcss" scoped>
-  .pagination {
-    @apply flex justify-center gap-4;
-    .action {
-      @apply rounded-md bg-slate-100 p-2 font-medium text-slate-700 shadow-md hover:bg-slate-200 disabled:text-slate-400 hover:disabled:bg-slate-100;
-    }
-    .page {
-      @apply rounded-md bg-slate-100 p-2 font-medium text-slate-700 shadow-md hover:bg-slate-200;
-      &.active {
-        @apply bg-yellow-700 text-slate-100 hover:bg-yellow-600;
-      }
+.pagination {
+  @apply flex justify-center gap-4;
+  .action {
+    @apply rounded-md bg-slate-100 p-2 font-medium text-slate-700
+            shadow-md hover:bg-slate-200 disabled:text-slate-400
+            hover:disabled:bg-slate-100;
+  }
+  .page {
+    @apply rounded-md bg-slate-100 p-2 font-medium text-slate-700
+            shadow-md hover:bg-slate-200;
+    &.active {
+      @apply bg-yellow-700 text-slate-100 hover:bg-yellow-600;
     }
   }
+}
 </style>

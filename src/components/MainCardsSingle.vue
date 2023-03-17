@@ -1,37 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+
 
 import { array, name, email, jobDescriptor } from 'minifaker'
 import 'minifaker/locales/en'
 
-import useAPI from '@/composables/useAPI'
-const { getDepartment } = useAPI()
 
-const selectCard = () => {
-  console.group(`${props.employee.name} selected`)
-}
-
-const props = defineProps({
-  employee: {
-    type: Object,
-    required: true,
-    default: () => {
-      return {
-        createAt: '2022-01-01',
-        departmentId: '123',
-        email: 'john.doe@example.com',
-        employeeId: '123',
-        name: 'John Doe',
-        quote: 'Really Cool',
-        title: 'Position',
-        updatedAt: '2022-01-01',
-      }
-    }
-  }
-})
-
-const departmentResponse = await getDepartment(props.employee.departmentId)
-const department = ref(departmentResponse)
 
 </script>
 
