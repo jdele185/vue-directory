@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const employees = ref([])
 const pages = ref(1)
-const loading = ref(false)
+const loading = ref(true)
 const activePage = ref(1)
 const pageSize = ref(8)
 

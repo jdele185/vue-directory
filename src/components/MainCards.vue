@@ -1,13 +1,13 @@
 <script setup>
-
+import useAPI from '@/composables/useAPI'
 import MainCardsSingle from '@/components/MainCardsSingle.vue'
 
-
+const { employees } = useAPI()
 </script>
 
 <template>
   <div class="sub-wrapper">
-    <MainCardsSingle v-for="n in 10" :key="n" />
+    <MainCardsSingle v-for="employee in employees" :key="employee.employeeId" :employee="employee" />
   </div>
 </template>
 

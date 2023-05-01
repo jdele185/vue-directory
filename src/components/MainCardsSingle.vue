@@ -1,10 +1,27 @@
 <script setup>
+import { ref } from 'vue'
 
-
-import { array, name, email, jobDescriptor } from 'minifaker'
 import 'minifaker/locales/en'
+import { array, name, email, jobDescriptor } from 'minifaker'
 
+import useAPI from '@/composables/useAPI'
+const { getDepartment } = useAPI()
 
+const selectCard = () => {
+  console.log(`${props.employee.name} selected`)
+}
+
+const props = defineProps({
+  employee: {
+    type: Object,
+    required: true,
+    default: () => {
+      return {
+        
+      }
+    },
+  },
+})
 
 </script>
 
