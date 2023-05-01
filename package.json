@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@vueuse/firebase": "^9.13.0",
+    "axios": "^1.3.6",
     "firebase": "^9.17.1",
     "minifaker": "^1.34.1",
     "random-profile-generator": "^2.3.0",
