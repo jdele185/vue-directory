@@ -16,7 +16,7 @@ const api = axios.create({
 })
 
 const getEmployees = async () => {
-  loading.value = true
+  loading.value = false
   const { data, headers } = await api.get('/api/employees', {
     params: {
       page: activePage.value,
