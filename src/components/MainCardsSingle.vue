@@ -17,12 +17,20 @@ const props = defineProps({
     required: true,
     default: () => {
       return {
-        
+        createdAt: '2022-01-01',
+          departmentId: '123',
+          email: 'john.doe@example.com',
+          employeeId: '123',
+          name: 'John Doe',
+          quote: 'Really Cool quote',
+          title: 'Position',
+          updatedAt: '2022-01-01',
       }
     },
   },
 })
-
+  const departmentResponse = await getDepartment(props.employee.departmentId)
+  const department = ref(departmentResponse)
 </script>
 
 <template>
